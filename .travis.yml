@@ -13,4 +13,4 @@ before_install:
 # commands needed to run the test suites
 script:
   # -- --coverage helps you to exit the test suites; regular workflow involves entering next steps ( q, p, w) on command line
-  - docker run -e CI=true USERNAME/docker-react npm run test
+  - docker run -e CI=true shubhamadep/docker-react npm run test
