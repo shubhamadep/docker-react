@@ -1,0 +1,16 @@
+# requires sudo permissions to run this.
+sudo: required
+
+# needs services installed
+services:
+  - docker
+
+# commands executed before tests are run.
+before_install:
+  - docker build -t shubhamadep/docker-react -f Dockerfile.dev .
+
+
+# commands needed to run the test suites
+script:
+  # -- --coverage helps you to exit the test suites; regular workflow involves entering next steps ( q, p, w) on command line
+  - docker run shubhamadep/docker-react npm run test -- --coverage
