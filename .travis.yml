@@ -14,3 +14,15 @@ before_install:
 script:
   # -- --coverage helps you to exit the test suites; regular workflow involves entering next steps ( q, p, w) on command line
   - docker run -e CI=true shubhamadep/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-698380820972"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY

@@ -7,7 +7,9 @@ services:
     ports:
       - "3000:3000"
     volumes:
+      # do not map node_modules, and use the node_modules folder inside docker container.
       - /app/node_modules
+      # map everything else. Easier for development locally, quick refresh without docker build.
       - .:/app
 
   tests:
